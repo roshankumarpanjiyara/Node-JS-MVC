@@ -11,4 +11,14 @@ async function auth(req, res, next) {
   next();
 }
 
-module.exports = auth;
+function protectRoute(req, res, next) {
+  if (!res.locals.isAuth) {
+    return res.redirect("/401");
+  }
+  next();
+}
+
+module.exports = {
+  auth: auth,
+  protectRoute: protectRoute,
+};

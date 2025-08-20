@@ -9,7 +9,7 @@ const sessionConfig = require('./config/session');
 const db = require('./data/database');
 const authRoutes = require('./routes/auth');
 const blogRoutes = require('./routes/blog');
-const authMiddleware = require('./middleware/auth');
+const authMiddleware = require('./middleware/auth').auth;
 const addCSRFTokenMiddleware = require('./middleware/csrf-token');
 
 const mongoDbSessionStore = sessionConfig.createSessionStore(session);

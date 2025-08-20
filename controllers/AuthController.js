@@ -4,6 +4,10 @@ const mongodb = require("mongodb");
 const Auth = require("../models/Auth");
 const authValidation = require("../public/utilities/auth-validation");
 
+function get401Page(req, res){
+  res.status(401).render("401");
+}
+
 function getSignUpPage(req, res) {
   const sessionInputData = authValidation.getSessionErrorData(req, {
     email: "",
@@ -172,6 +176,7 @@ function logout(req, res) {
 }
 
 module.exports = {
+  get401Page: get401Page,
   getSignUpPage: getSignUpPage,
   getLoginPage: getLoginPage,
   signup: signup,

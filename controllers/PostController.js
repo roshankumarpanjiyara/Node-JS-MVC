@@ -53,8 +53,9 @@ async function createPost(req, res) {
 async function getPostById(req, res, next) {
   // const postId = new ObjectId(req.params.id);
   // const post = await db.getDb().collection('posts').findOne({ _id: postId });
+  let post;
   try{
-    const post = new Post(null, null, req.params.id);
+    post = new Post(null, null, req.params.id);
   }catch(error){
     next(error);
     return;
